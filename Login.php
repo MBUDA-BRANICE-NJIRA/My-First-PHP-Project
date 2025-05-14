@@ -2,6 +2,8 @@
 //Include the connection file
 include './Conection.php';
 
+//session start
+session_start();
 
 //Login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      // check specific user from array
     if ($user && password_verify($password, $user['password'])) {
+        //Store session
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['username'] = $user['username'];
         header("Location: dashboard.php");
         exit;
     }else{
