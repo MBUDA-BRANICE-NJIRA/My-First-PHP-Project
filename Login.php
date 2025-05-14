@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </button>
                 
                 <div class="form-footer">
-                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                    <p>Don't have an account? <a href="./register.php">Sign Up</a></p>
                     <div class="social-login">
                         <p>Or sign in with:</p>
                         <div class="social-icons">
