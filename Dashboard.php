@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
     <nav>
-        <a href="./LogOut.php"></a>
+        <a href="./LogOut.php">LogOut</a>
     </nav>
     <h1>Admin Dashboard</h1>
     

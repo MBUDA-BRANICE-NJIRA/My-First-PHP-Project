@@ -12,5 +12,6 @@
     </nav>
     <h1>Welcome Home</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, magni rem iste obcaecati commodi porro harum nemo maxime quis molestiae!</p>
+    <button>read more</button>
 </body>
 </html>

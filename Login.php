@@ -1,4 +1,8 @@
 <?php
+
+//sessiom start
+session_start();
+
 //Include the connection file
 include './Conection.php';
 
@@ -19,10 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':email', $email);
     $stmt->execute();
 
-    //All users with the same email
+    //All users with the email provided
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
      // check specific user from array
+     //Login verification Point
     if ($user && password_verify($password, $user['password'])) {
         //Store session
         $_SESSION['email'] = $user['email'];
