@@ -6,9 +6,6 @@ session_start();
 //Include the connection file
 include './Conection.php';
 
-//session start
-session_start();
-
 //Login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Get values from the form
