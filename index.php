@@ -601,6 +601,8 @@
         }
     </style>
 </head>
+
+
 <body>
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
@@ -622,11 +624,11 @@
             </ul>
             
             <div class="auth-buttons" id="authButtons">
-                <a href="Login.php" class="btn btn-outline">
+                <a href="./Login.php" class="btn btn-outline">
                     <i class="fas fa-sign-in-alt"></i>
                     Login
                 </a>
-                <a href="register.php" class="btn btn-primary">
+                <a href="./register.php" class="btn btn-primary">
                     <i class="fas fa-user-plus"></i>
                     Register
                 </a>
@@ -764,70 +766,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // DOM Elements
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        const authButtons = document.getElementById('authButtons');
-        const toastContainer = document.getElementById('toastContainer');
-
-        // Toggle mobile menu
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            authButtons.classList.toggle('active');
-        });
-
-        // Toast notification
-        function showToast(title, message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            
-            toast.innerHTML = `
-                <div class="toast-icon">
-                    <i class="fas ${type === 'success' ? 'fa-check' : 'fa-exclamation'}"></i>
-                </div>
-                <div class="toast-content">
-                    <div class="toast-title">${title}</div>
-                    <div class="toast-message">${message}</div>
-                </div>
-                <button class="toast-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-            
-            toastContainer.appendChild(toast);
-            
-            const closeBtn = toast.querySelector('.toast-close');
-            closeBtn.addEventListener('click', () => {
-                toast.style.animation = 'slideOut 0.3s forwards';
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            });
-            
-            setTimeout(() => {
-                toast.style.animation = 'slideOut 0.3s forwards';
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            }, 5000);
-        }
-
-        // Check for URL parameters to show success messages
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('registered')) {
-                showToast('Success', 'Your account has been created successfully!', 'success');
-            }
-            if (urlParams.has('loggedin')) {
-                showToast('Success', 'You have been logged in successfully!', 'success');
-            }
-            if (urlParams.has('loggedout')) {
-                showToast('Success', 'You have been logged out successfully!', 'success');
-            }
-        });
-    </script>
 </body>
 </html>
