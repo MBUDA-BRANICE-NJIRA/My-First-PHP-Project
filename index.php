@@ -572,6 +572,7 @@
                 opacity: 0;
             }
 
+            
             .hamburger.active span:nth-child(3) {
                 transform: translateY(-7px) rotate(-45deg);
             }
