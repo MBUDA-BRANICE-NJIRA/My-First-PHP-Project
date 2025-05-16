@@ -30,13 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $user['role'];//The role
         $_SESSION['username'] = $user['username'];
+
         // echo "Helloo $_SESSION['role']"//For the role
         // header("Location: dashboard.php");
 
-        if($_SESSION['role'] === "admim"){
+  //If else startment
+        if($_SESSION['role'] === "admin"){
+            
             header("Location: dashboard.php");
         }else{
-            echo "Not admin"
+            
+            header("Location: UserDashboard.php");
         }
 
         exit;

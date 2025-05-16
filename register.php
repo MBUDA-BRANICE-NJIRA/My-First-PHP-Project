@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-    $role = "";
+    $role = "admin";
 
     //Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -18,11 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //SAVE TO DATABASE
     try{
 
-    $sql = "INSERT INTO register (username, email, password) VALUES (:username, :email, :password)";
+    $sql = "INSERT INTO register (username, email, password, role) VALUES (:username, :email, :password, :role)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':password', $hashedPassword);
+    $stmt->bindParam(':role', $role);
     
     // Execute the statement
     $stmt->execute();

@@ -6,6 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@ if (!isset($_SESSION['username'])) {
     <title>User Dashboard</title>
 </head>
 <body>
+    
     <h1>User Dashhboard</h1>
      <button class="logout-btn" onclick="location.href='./LogOut.php'">
     <i class="fas fa-sign-out-alt"></i>
