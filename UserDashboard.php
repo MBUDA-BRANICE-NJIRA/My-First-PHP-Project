@@ -498,7 +498,7 @@ if (!isset($_SESSION['username'])) {
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Tech<span>Pro</span></div>
+            <div class="logo">BNJ.Tech<span>Company</span></div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
