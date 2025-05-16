@@ -28,8 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($password, $user['password'])) {
         //Store session
         $_SESSION['email'] = $user['email'];
+        $_SESSION['role'] = $user['role'];//The role
         $_SESSION['username'] = $user['username'];
-        header("Location: dashboard.php");
+        // echo "Helloo $_SESSION['role']"//For the role
+        // header("Location: dashboard.php");
+
+        if($_SESSION['role'] === "admim"){
+            header("Location: dashboard.php");
+        }else{
+            echo "Not admin"
+        }
+
         exit;
     }else{
         echo "Invalid credentials";
