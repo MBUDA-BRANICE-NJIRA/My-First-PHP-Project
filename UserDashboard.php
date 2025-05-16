@@ -508,7 +508,7 @@ if (!isset($_SESSION['username'])) {
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="cta-button">Get a Quote</a>
+            <a class="cta-button" onclick="location.href='./LogOut.php'">LogOut</a>
         </div>
     </header>
 

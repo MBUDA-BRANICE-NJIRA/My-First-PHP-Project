@@ -340,7 +340,7 @@ if (!isset($_SESSION['username'])) {
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
-                <h2>Branice L.t.d Company</h2>
+                <h2>BNJ Tech. Company</h2>
             </div>
             
             <div class="nav-menu">
