@@ -1,65 +1,52 @@
+
 <?php
+// Include the database connection file
+include '../db/Conection.php';
 
-//sessiom start
-session_start();
 
-//Include the connection file
-include './Conection.php';
+//Registering 
 
-//Login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //Get values from the form
-
+  //Get values from the form
+    $username = $_POST['username'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
+    $role = "user";
 
-    //Check if the email and password are not empty
+    //Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "SELECT * FROM register WHERE email = :email";
+    //SAVE TO DATABASE
+    try{
+
+    $sql = "INSERT INTO register (username, email, password, role) VALUES (:username, :email, :password, :role)";
     $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':username', $username);
     $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $hashedPassword);
+    $stmt->bindParam(':role', $role);
+    
+    // Execute the statement
     $stmt->execute();
+    // echo "Registration successfully";
 
-    //All users with the email provided
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    header("Location: Login.php");   //Navigates to the login page after registration
 
-     // check specific user from array
-     //Login verification Point
-    if ($user && password_verify($password, $user['password'])) {
-        //Store session
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['role'] = $user['role'];//The role
-        $_SESSION['username'] = $user['username'];
-
-        // echo "Helloo $_SESSION['role']"//For the role
-        // header("Location: dashboard.php");
-
-  //If else startment
-        if($_SESSION['role'] === "admin"){
-            
-            header("Location: dashboard.php");
-        }else{
-            
-            header("Location: UserDashboard.php");
-        }
-
-        exit;
-    }else{
-        echo "Invalid credentials";
-    }
+  }
+  catch(PDOException $e) {
+    echo "Error Occured " . $e->getMessage();
+}
 }
 ?>
 
-
-<!------------------------------------------Log In Form ------------------------------------------------------->
-
+<!-- ---------------------------------------HTML FORM DOCUMENT ------------------------------------>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Login Form</title>
-    <link rel="stylesheet" href="./login.css">
+    <title>Professional Signup Form</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -69,11 +56,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="logo">
                     <i class="fas fa-user-shield"></i>
                 </div>
-                <h2>Welcome Back</h2>
-                <p>Sign in to access your account</p>
+                <h2>Join Us Today</h2>
+                <p>Create your account in just 30 seconds</p>
             </div>
             
-            <form class="login-form" action="" method="POST">
+            <form class="signup-form" action="" method="post">
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                
                 <div class="form-group">
                     <label for="email">
                         <i class="fas fa-envelope"></i> Email Address
@@ -86,19 +80,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <i class="fas fa-lock"></i> Password
                     </label>
                     <input type="password" id="password" name="password" placeholder="••••••••" required>
-                    <div class="forgot-password">
-                        <a href="#">Forgot password?</a>
+                    <div class="password-strength">
+                        <span class="strength-bar"></span>
+                        <span class="strength-text">Password strength</span>
                     </div>
                 </div>
                 
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-sign-in-alt"></i> Sign In
+                    <i class="fas fa-paper-plane"></i> Create Account
                 </button>
                 
                 <div class="form-footer">
-                    <p>Don't have an account? <a href="./register.php">Sign Up</a></p>
+                    <p>Already have an account? <a href="./Login.php">Sign In</a></p>
                     <div class="social-login">
-                        <p>Or sign in with:</p>
+                        <p>Or sign up with:</p>
                         <div class="social-icons">
                             <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
                             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -111,3 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+
+
+
+

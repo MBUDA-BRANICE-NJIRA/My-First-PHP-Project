@@ -625,11 +625,11 @@
             </ul>
             
             <div class="auth-buttons" id="authButtons">
-                <a href="./Login.php" class="btn btn-outline">
+                <!-- <a href="./Auth/Login.php" class="btn btn-outline">
                     <i class="fas fa-sign-in-alt"></i>
                     Login
-                </a>
-                <a href="./register.php" class="btn btn-primary">
+                </a> -->
+                <a href="./Auth/register.php" class="btn btn-primary">
                     <i class="fas fa-user-plus"></i>
                     Register
                 </a>
