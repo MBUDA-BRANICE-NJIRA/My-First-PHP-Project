@@ -1,18 +1,3 @@
-<?php
-session_start();
-// Check if user is logged in
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit;
-}
-?>
-
-<!-- -----Html top section --------->
- <?php require('/User/Includes/header');
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +113,7 @@ if (!isset($_SESSION['username'])) {
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>TechPro Solutions</h3>
+                    <h3>    BNJ Tech Company</h3>
                     <p style="color: #cbd5e1; margin-bottom: 20px;">Your trusted partner for premium computer products and solutions.</p>
                 </div>
                 <div class="footer-column">

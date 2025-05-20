@@ -1,24 +1,59 @@
-<?php require('../Includes/header'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Article Form</title>
+</head>
+<body style="font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f9f9f9;">
 
-<div class="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
-  <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Hello, Writer</h1>
-  <form action="" method="post" class="space-y-4">
-    <div>
-      <label for="title" class="block text-sm font-medium text-gray-700">Article Title</label>
-      <input type="text" name="title" id="title"
-        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+  <div style="width: 100%; max-width: 500px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 24px;">
+    
+    <!-- Card Header -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 4px;">World Of Creativity</h2>
+      <p style="font-size: 14px; color: #666;">Create your next amazing article</p>
     </div>
 
-    <div>
-      <label for="description" class="block text-sm font-medium text-gray-700">Article Description</label>
-      <input type="text" name="description" id="description"
-        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-    </div>
+    <!-- Form -->
+    <form>
+      <!-- Title Field -->
+      <div style="margin-bottom: 16px;">
+        <label for="title" style="display: block; font-weight: 600; margin-bottom: 6px;">Article Title</label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          placeholder="Enter a compelling title"
+          style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"
+        />
+        <p style="font-size: 12px; color: #999; margin-top: 4px;">Make it catchy and descriptive</p>
+      </div>
 
-    <div>
-      <button type="submit"
-        class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Create
-        Article</button>
+      <!-- Description Field -->
+      <div style="margin-bottom: 16px;">
+        <label for="description" style="display: block; font-weight: 600; margin-bottom: 6px;">Article Description</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Briefly describe what your article is about"
+          style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; min-height: 100px; resize: none;"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        style="width: 100%; padding: 10px; background-color: #000; color: #fff; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;"
+      >
+        Create Article
+      </button>
+    </form>
+
+    <!-- Card Footer -->
+    <div style="text-align: center; margin-top: 24px; border-top: 1px solid #eee; padding-top: 12px;">
+      <p style="font-size: 12px; color: #999;">Your article will be reviewed before publishing</p>
     </div>
-  </form>
-</div>
+  </div>
+
+</body>
+</html>

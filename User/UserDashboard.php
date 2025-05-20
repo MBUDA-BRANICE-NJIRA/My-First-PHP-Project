@@ -605,10 +605,8 @@ if (!isset($_SESSION['username'])) {
             </div>
         </div>
     </section>
-
-<!-- ----Footer ---------------->
-<?php require('../User/Includes/footer.php');  ?>
-
 </body>
 </html>
+<!-- ----Footer ---------------->
+<?php require('./Includes/footer.php');  ?>
 
