@@ -7,5 +7,13 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
-<!-- -----Html top section --------->
- <?php require('/User/Includes/header');
+<!-- -----Html top section -------->
+ <?php require('/User/Includes/header'); ?>
+
+
+<!-- -----Body of the page --------->
+
+<?php require('/User/Includes/Body');  ?>
+
+<!-- ------Footer ------------------>
+<?php require('/User/Includes/footer');  ?>
