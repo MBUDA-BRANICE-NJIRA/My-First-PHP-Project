@@ -135,10 +135,10 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="../../User/Articles/create.php">Create Article</a></li>
+                    <li><a href="./../Articles/create.php">Create Article</a></li>
                 </ul>
             </nav>
-            <a class="cta-button" onclick="location.href='./LogOut.php'">LogOut</a>
+            <a class="cta-button" onclick="location.href='./LogOut.php'>LogOut</a>
         </div>
     </header>
 
