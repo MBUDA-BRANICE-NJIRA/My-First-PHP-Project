@@ -7,6 +7,13 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
+<!-- -----Html top section --------->
+ <?php require('');
+
+
+
+<!-- -----Html top section --------->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
