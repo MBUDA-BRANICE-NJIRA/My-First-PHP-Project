@@ -8,11 +8,11 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <!-- -----Html top section --------->
- <?php require('');
+ <?php require('/User/Includes/header');
 
 
 
-<!-- -----Html top section --------->
+
 
 <!DOCTYPE html>
 <html lang="en">
