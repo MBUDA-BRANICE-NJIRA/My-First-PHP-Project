@@ -31,18 +31,18 @@
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
+            /* position: fixed; */
             width: 100%;
             top: 0;
             z-index: 1000;
         }
 
-        .header-container {
+        /* .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-        }
+            padding: 20px 0; */
+        /* } */
 
         .logo {
             font-size: 24px;
@@ -88,39 +88,7 @@
             background-color: #1d4ed8;
         }
 
-       
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-            }
-
-            .hero-text, .hero-image {
-                text-align: center;
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .header-container {
-                justify-content: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
+        
     </style>
 </head>
 <body>

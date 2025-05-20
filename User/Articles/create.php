@@ -1,4 +1,4 @@
-<?php require('../../User/Includes/header'); ?>
+<?php require('../Includes/header'); ?>
 
 <div class="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
   <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Hello, Writer</h1>
