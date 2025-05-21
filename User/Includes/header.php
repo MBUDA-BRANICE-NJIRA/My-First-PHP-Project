@@ -226,7 +226,7 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="../../../PHP/User/Articles/create.php">Articles</a></li>
+                    <li><a href="../../../PHP/User/Articles/Articles.php">Articles</a></li>
                     <li><a href="../../../PHP/User/Articles/create.php">Create Article</a></li>
                 </ul>
                 <a class="cta-button" onclick="location.href='../../../PHP/Auth/LogOut.php'">Log Out</a>

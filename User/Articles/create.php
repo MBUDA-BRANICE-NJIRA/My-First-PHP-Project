@@ -1,12 +1,44 @@
+<?php
+// include './conn.php';
+include '../../../PHP/db/Conection.php';
+
+//include the header which is the Navigation Bar
+require('../../User/Includes/header.php');
+
+
+// Article Server connection
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // get values from form
+    $title = $_POST['title'] ?? '';
+    $description = $_POST['description'] ?? '';
+
+
+    // save values to db
+    try{
+        $sql = "INSERT INTO articles (title, description) VALUES (:title, :description)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':description', $description);
+
+        $stmt-> execute();
+        echo "<script>alert('article created successfully')</script>";
+
+    }catch(PDOException $e){
+        echo "an error occured " . $e->getMessage();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Article Form</title>
-</head>
-<body style="font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f9f9f9;">
+  <head>
+    <meta charset="UTF-8">
+    <title>Article Form</title>
+  </head>
+  <body style ="font-family: sans-serif; min-height: 100vh; background: #f9f9f9; display: flex; flex-direction: column; align-items: center;">
 
-  <div style="width: 100%; max-width: 500px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 24px;">
+  <div style="width: 100%; max-width: 500px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 24px; margin-top: 100px;">
     
     <!-- Card Header -->
     <div style="text-align: center; margin-bottom: 20px;">
@@ -15,14 +47,13 @@
     </div>
 
     <!-- Form -->
-    <form>
+    <form action="create.php" method="POST">
       <!-- Title Field -->
       <div style="margin-bottom: 16px;">
         <label for="title" style="display: block; font-weight: 600; margin-bottom: 6px;">Article Title</label>
         <input
-          id="title"
-          name="title"
           type="text"
+          name="title"
           placeholder="Enter a compelling title"
           style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"
         />
