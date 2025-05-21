@@ -212,13 +212,6 @@
     <header>
         <div class="container header-container">
             <div class="logo">BNJ.Tech<span>Company</span></div>
-            
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
             <nav>
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
