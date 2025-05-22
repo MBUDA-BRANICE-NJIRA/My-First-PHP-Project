@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea name='description' id='description' required class='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'><?php echo htmlspecialchars($article['description']); ?></textarea>
             </div>
             <button type='submit' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update Article</button>
+            <a href="delete.php?id=<?php echo $article['id']; ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete Article</a>
         </form>
     </div>
 </body>
