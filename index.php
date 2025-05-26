@@ -613,7 +613,7 @@
         <div class="container navbar-container">
             <a href="index.html" class="logo">
                 <i class="fas fa-cube"></i>
-                Fusion
+                B.N.J Company
             </a>
             
             <ul class="nav-links" id="navLinks">

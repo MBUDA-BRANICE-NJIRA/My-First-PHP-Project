@@ -358,10 +358,10 @@ if (!isset($_SESSION['username'])) {
                     <i class="fas fa-laptop"></i>
                     <span>Products</span>
                 </div>
-                <div class="nav-item">
-                    <i class="fas fa-users"></i>
-                    <span>Customers</span>
-                </div>
+                <a href="./contacts.php" class="nav-item">
+                  <i class="fas fa-users"></i>
+                   <span>Customers Mails</span>
+                </a>
                 <div class="nav-item">
                     <i class="fas fa-chart-line"></i>
                     <span>Analytics</span>

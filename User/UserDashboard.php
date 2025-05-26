@@ -6,6 +6,29 @@ if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit;
 }
+// contact.php
+session_start();
+include '../db/Conection.php'; // Database connection
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $company = $_POST['company'] ?? '';
+    $message = $_POST['message'] ?? '';
+
+    // Insert into database
+    $sql = "INSERT INTO contacts (name, email, company, message) VALUES (:name, :email, :company, :message)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':company', $company);
+    $stmt->bindParam(':message', $message);
+    $stmt->execute();
+
+    // Redirect or show success message
+    header("Location: success.php");
+    exit;
+}
 ?>
 
 <!-- -----Navbar-------- --------->
@@ -581,27 +604,25 @@ if (!isset($_SESSION['username'])) {
                     </div>
                     <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM</p>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Your email">
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" placeholder="Your company">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="How can we help you?"></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
-                </div>
+               <form action="contact.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+               </form>
             </div>
         </div>
     </section>
