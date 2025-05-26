@@ -7,9 +7,8 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 // contact.php
-session_start();
-include '../db/Conection.php'; // Database connection
 
+include '../db/Conection.php'; // Database connection
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';
@@ -604,7 +603,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <p>Business Hours: Monday - Friday, 9:00 AM - 6:00 PM</p>
                 </div>
-               <form action="contact.php" method="POST">
+               <form action="saveData.php" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>

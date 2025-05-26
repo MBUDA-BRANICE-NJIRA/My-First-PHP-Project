@@ -1,5 +1,8 @@
+<?php
 // view_contacts.php
+
 session_start();
+
 include '../db/Conection.php'; // Database connection
 
 if (!isset($_SESSION['username'])) {
